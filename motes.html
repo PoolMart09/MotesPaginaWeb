@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+      
+<title></title>
+</head>
+<script>
+function sumar_subtotal (valor) {
+   var sub = 0;	
+   var iva =0;
+   var total=0;
+   valor = parseInt(valor); 
+
+   sub = document.getElementById('sub').innerHTML;
+   sub = (sub == null || sub == undefined || sub == "") ? 0 : sub;
+   sub = (parseInt(sub) + parseInt(valor));
+   document.getElementById('sub').innerHTML = sub;
+
+
+
+//calcular el IVA
+   iva = document.getElementById('iva').innerHTML;
+
+   iva = ((parseInt(sub) * 0.12) );
+
+   document.getElementById('iva').innerHTML = iva;
+
+//calcular el total
+       total = document.getElementById('total').innerHTML;
+
+   total = ((parseInt(sub) + iva) );
+
+   document.getElementById('total').innerHTML = total;
+}
+
+</script>
+<body>
+
+<h1 align="center">Los Motes de Benito</h1>
+Cualquier plato a $0.50:  choclomote, con chicharron
+<table>
+<tr>
+<td><img src="mate1.jpg" height="300" width="400"> <br>
+</td>
+<td>
+<table>
+<tr><td>
+<span>Nombre:</span> <input></input>
+</tr></td>
+</br>
+<tr><td>
+<label># de choclomotes:</label>
+<input type="text" id="txt_campo_1" onchange="sumar_subtotal(this.value);" />
+</td></tr>
+<br/ >
+<tr><td>
+<span># de con chicharron:</span>
+<input type="text" id="txt_campo_2" onchange="sumar_subtotal(this.value);" />
+</td></tr>
+<br/ >
+<tr><td>
+En cuantos minutos viene por su pedido: <input></input><br/ >
+</td></tr>
+<tr><td>
+<span>Subtotal:</span><span id="sub"></span>
+<br/ >
+</td></tr>
+<tr><td>
+<span>Iva:</span> <span id="iva"></span>
+</td></tr>
+</br>
+<tr><td>
+<span>Total: </span> <span id="total"></span>
+</td></tr>
+</tr>
+</table>
+
+</body>
+</html>
